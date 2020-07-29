@@ -6,35 +6,37 @@ class Aula extends StatefulWidget {
 }
 
 class _AulaState extends State<Aula> {
-  TextEditingController _controle1 = TextEditingController();
-  TextEditingController _controle2 = TextEditingController();
+  TextEditingController _variavelA = TextEditingController();
+  TextEditingController _variavelB = TextEditingController();
 
-  double _x;
+  int _resultado;
 
   @override
-  void initState() {
+  initState() {
     super.initState();
-
-    _x = 0;
+    _resultado = 0;
   }
 
   @override
   build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        centerTitle: true,
+        centerTitle: false,
         title: Text('Aula 1'),
       ),
-      body: _home(context),
+      body: SingleChildScrollView(
+        child: _home(context),
+      ),
       drawer: Container(
         color: Colors.amber,
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          setState(() {
-            _x =
-                (double.parse(_controle1.text) * double.parse(_controle2.text));
-          });
+          setState(
+            () {
+              _resultado = _resultado + 1;
+            },
+          );
         },
       ),
     );
@@ -42,20 +44,101 @@ class _AulaState extends State<Aula> {
 
   Container _home(BuildContext context) {
     return Container(
-      color: Colors.green,
-      // width: 300,
+      color: Colors.yellow,
+
+      //  child: Text('Aula de teste'),
+
       width: MediaQuery.of(context).size.width,
-      //    height: 300,
+      height: MediaQuery.of(context).size.height,
       //  margin: EdgeInsets.all(150),
       //margin: EdgeInsets.only(top: 10, left: 15, bottom: 5, right: 5),
       //  padding: EdgeInsets.all(100),
 
       child: Column(
-        //  crossAxisAlignment: CrossAxisAlignment.center,
-        //mainAxisAlignment: MainAxisAlignment.center,
-        //  mainAxisSize: MainAxisSize.max,
+        //   mainAxisAlignment: MainAxisAlignment.end,
+        //   crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Text('data'),
+          Container(
+            alignment: Alignment.center,
+            color: Colors.blue,
+            width: MediaQuery.of(context).size.width,
+            height: 70,
+            child: Text(
+              'AULA DE TESTE',
+              style: TextStyle(
+                fontFamily: 'Arial',
+                fontSize: 50,
+                color: Colors.yellow,
+                fontWeight: FontWeight.bold,
+                fontStyle: FontStyle.italic,
+                decoration: TextDecoration.underline,
+              ),
+            ),
+          ),
+          Divider(
+            height: 50,
+          ),
+          Container(
+            color: Colors.red,
+            padding: const EdgeInsets.only(left: 60, right: 60),
+            child: Column(
+              children: [
+                Divider(
+                  height: 20,
+                ),
+                TextField(
+                  controller: _variavelA,
+                  //   maxLength: 4,
+                  keyboardType: TextInputType.number,
+                  decoration: InputDecoration(
+                    labelText: 'Digite o valor A',
+                    labelStyle: TextStyle(fontSize: 30),
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.all(
+                        Radius.circular(10.0),
+                      ),
+                    ),
+                  ),
+                ),
+                Divider(
+                  height: 20,
+                ),
+                TextField(
+                  controller: _variavelB,
+                  //   maxLength: 4,
+                  keyboardType: TextInputType.number,
+                  decoration: InputDecoration(
+                    labelText: 'Digite o valor B',
+                    labelStyle: TextStyle(fontSize: 30),
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.all(
+                        Radius.circular(10.0),
+                      ),
+                    ),
+                  ),
+                ),
+                Divider(
+                  height: 50,
+                ),
+                Text(
+                  _resultado.toString(),
+                  style: TextStyle(fontSize: 50),
+                ),
+              ],
+            ),
+          ),
+          RaisedButton(
+            child: Text('CALCULAR'),
+            color: Colors.green,
+            onPressed: () {
+              setState(
+                () {
+                  _resultado =
+                      (int.parse(_variavelA.text) + int.parse(_variavelB.text));
+                },
+              );
+            },
+          ),
         ],
       ),
     );
