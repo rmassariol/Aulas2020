@@ -80,12 +80,8 @@ class _AulaState extends State<Aula> {
           RaisedButton(
             child: Text('Calculadora'),
             onPressed: () {
-              return Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => Calculadora(
-                            teste: 'titulo da pagina',
-                          )));
+              return Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => Calculadora()));
             },
           ),
         ],
