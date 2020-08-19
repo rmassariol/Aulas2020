@@ -1,3 +1,7 @@
+import 'package:aula1/calculadora.dart';
+import 'package:aula1/imagens.dart';
+import 'package:aula1/imc.dart';
+import 'package:aula1/somarSetState.dart';
 import 'package:flutter/material.dart';
 
 class Aula extends StatefulWidget {
@@ -6,17 +10,6 @@ class Aula extends StatefulWidget {
 }
 
 class _AulaState extends State<Aula> {
-  TextEditingController _variavelA = TextEditingController();
-  TextEditingController _variavelB = TextEditingController();
-
-  int _resultado;
-
-  @override
-  initState() {
-    super.initState();
-    _resultado = 0;
-  }
-
   @override
   build(BuildContext context) {
     return Scaffold(
@@ -31,13 +24,7 @@ class _AulaState extends State<Aula> {
         color: Colors.amber,
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          setState(
-            () {
-              _resultado = _resultado + 1;
-            },
-          );
-        },
+        onPressed: () {},
       ),
     );
   }
@@ -58,85 +45,47 @@ class _AulaState extends State<Aula> {
         //   mainAxisAlignment: MainAxisAlignment.end,
         //   crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Container(
-            alignment: Alignment.center,
-            color: Colors.blue,
-            width: MediaQuery.of(context).size.width,
-            height: 70,
-            child: Text(
-              'AULA DE TESTE',
-              style: TextStyle(
-                fontFamily: 'Arial',
-                fontSize: 50,
-                color: Colors.yellow,
-                fontWeight: FontWeight.bold,
-                fontStyle: FontStyle.italic,
-                decoration: TextDecoration.underline,
-              ),
-            ),
-          ),
           Divider(
-            height: 50,
-          ),
-          Container(
-            color: Colors.red,
-            padding: const EdgeInsets.only(left: 60, right: 60),
-            child: Column(
-              children: [
-                Divider(
-                  height: 20,
-                ),
-                TextField(
-                  controller: _variavelA,
-                  //   maxLength: 4,
-                  keyboardType: TextInputType.number,
-                  decoration: InputDecoration(
-                    labelText: 'Digite o valor A',
-                    labelStyle: TextStyle(fontSize: 30),
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.all(
-                        Radius.circular(10.0),
-                      ),
-                    ),
-                  ),
-                ),
-                Divider(
-                  height: 20,
-                ),
-                TextField(
-                  controller: _variavelB,
-                  //   maxLength: 4,
-                  keyboardType: TextInputType.number,
-                  decoration: InputDecoration(
-                    labelText: 'Digite o valor B',
-                    labelStyle: TextStyle(fontSize: 30),
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.all(
-                        Radius.circular(10.0),
-                      ),
-                    ),
-                  ),
-                ),
-                Divider(
-                  height: 50,
-                ),
-                Text(
-                  _resultado.toString(),
-                  style: TextStyle(fontSize: 50),
-                ),
-              ],
-            ),
+            height: 100,
           ),
           RaisedButton(
-            child: Text('CALCULAR'),
-            color: Colors.green,
+              child: Text('Soma SetState'),
+              onPressed: () {
+                return Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => SomarSetState()));
+              }),
+          Divider(
+            height: 20,
+          ),
+          RaisedButton(
+            child: Text('Imagens'),
             onPressed: () {
-              setState(
-                () {
-                  _resultado =
-                      (int.parse(_variavelA.text) + int.parse(_variavelB.text));
-                },
-              );
+              return Navigator.push(
+                  context, MaterialPageRoute(builder: (context) => Imagens()));
+            },
+          ),
+          Divider(
+            height: 20,
+          ),
+          RaisedButton(
+            child: Text('IMC'),
+            onPressed: () {
+              return Navigator.push(
+                  context, MaterialPageRoute(builder: (context) => IMC()));
+            },
+          ),
+          Divider(
+            height: 20,
+          ),
+          RaisedButton(
+            child: Text('Calculadora'),
+            onPressed: () {
+              return Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => Calculadora(
+                            teste: 'titulo da pagina',
+                          )));
             },
           ),
         ],
