@@ -1,6 +1,7 @@
 import 'package:aula1/calculadora.dart';
 import 'package:aula1/imagens.dart';
 import 'package:aula1/imc.dart';
+import 'package:aula1/navegar.dart';
 import 'package:aula1/somarSetState.dart';
 import 'package:flutter/material.dart';
 
@@ -84,6 +85,36 @@ class _AulaState extends State<Aula> {
                   MaterialPageRoute(builder: (context) => Calculadora()));
             },
           ),
+
+          Divider(
+            height: 20,
+          ),
+          RaisedButton(
+            child: Text('Navegar'),
+            onPressed: () {
+              return Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => Navegar(
+                            p1: 1,
+                          )));
+            },
+          ),
+
+          Divider(
+            height: 20,
+          ),
+          // RaisedButton(
+          //   child: Text('Navegar'),
+          //   onPressed: () {
+          //     return Navigator.push(
+          //         context,
+          //         MaterialPageRoute(
+          //             builder: (context) => Navegar(
+          //                   parametro: 1,
+          //                 )));
+          //   },
+          // ),
         ],
       ),
     );
