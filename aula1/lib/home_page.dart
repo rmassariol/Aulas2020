@@ -6,12 +6,32 @@ import 'package:aula1/page_view.dart';
 import 'package:aula1/somarSetState.dart';
 import 'package:flutter/material.dart';
 
+import 'package:assets_audio_player/assets_audio_player.dart';
+
 class Aula extends StatefulWidget {
   @override
   _AulaState createState() => _AulaState();
 }
 
 class _AulaState extends State<Aula> {
+  AssetsAudioPlayer _assetsAudioPlayer;
+
+  @override
+  void initState() {
+    super.initState();
+    _assetsAudioPlayer = AssetsAudioPlayer();
+    _assetsAudioPlayer.open(
+      Audio("/audio/Toque.mp3"),
+    );
+    _assetsAudioPlayer.playOrPause();
+  }
+
+  @override
+  void dispose() {
+    _assetsAudioPlayer = null;
+    super.dispose();
+  }
+
   @override
   build(BuildContext context) {
     return Scaffold(
