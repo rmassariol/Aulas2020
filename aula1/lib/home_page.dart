@@ -19,11 +19,11 @@ class _AulaState extends State<Aula> {
   @override
   void initState() {
     super.initState();
-    _assetsAudioPlayer = AssetsAudioPlayer();
-    _assetsAudioPlayer.open(
-      Audio("/audio/Toque.mp3"),
-    );
-    _assetsAudioPlayer.playOrPause();
+    // _assetsAudioPlayer = AssetsAudioPlayer();
+    // _assetsAudioPlayer.open(
+    //   Audio("/audio/Toque.mp3"),
+    // );
+    // _assetsAudioPlayer.playOrPause();
   }
 
   @override
