@@ -6,7 +6,9 @@ import 'package:aula1/page_view.dart';
 import 'package:aula1/somarSetState.dart';
 import 'package:flutter/material.dart';
 
-import 'package:assets_audio_player/assets_audio_player.dart';
+//import 'package:assets_audio_player/assets_audio_player.dart';
+
+import 'banco_dados.dart';
 
 class Aula extends StatefulWidget {
   @override
@@ -14,7 +16,7 @@ class Aula extends StatefulWidget {
 }
 
 class _AulaState extends State<Aula> {
-  AssetsAudioPlayer _assetsAudioPlayer;
+  // AssetsAudioPlayer _assetsAudioPlayer;
 
   @override
   void initState() {
@@ -28,7 +30,7 @@ class _AulaState extends State<Aula> {
 
   @override
   void dispose() {
-    _assetsAudioPlayer = null;
+    //  _assetsAudioPlayer = null;
     super.dispose();
   }
 
@@ -130,6 +132,17 @@ class _AulaState extends State<Aula> {
             onPressed: () {
               return Navigator.push(context,
                   MaterialPageRoute(builder: (context) => PageViewClass()));
+            },
+          ),
+
+          Divider(
+            height: 20,
+          ),
+          RaisedButton(
+            child: Text('Banco de Dados'),
+            onPressed: () {
+              return Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => BancoDeDados()));
             },
           ),
 
