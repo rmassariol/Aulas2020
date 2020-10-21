@@ -1,3 +1,4 @@
+import 'package:aula1/acesso_api.dart';
 import 'package:aula1/calculadora.dart';
 import 'package:aula1/imagens.dart';
 import 'package:aula1/imc.dart';
@@ -143,6 +144,17 @@ class _AulaState extends State<Aula> {
             onPressed: () {
               return Navigator.push(context,
                   MaterialPageRoute(builder: (context) => BancoDeDados()));
+            },
+          ),
+
+          Divider(
+            height: 20,
+          ),
+          RaisedButton(
+            child: Text('Acesso API'),
+            onPressed: () {
+              return Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => AcessoApi()));
             },
           ),
 
