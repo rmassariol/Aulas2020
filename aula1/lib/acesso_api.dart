@@ -73,8 +73,10 @@ class _AcessoApiState extends State<AcessoApi> {
             );
           } else {
             return SizedBox(
-              child: CircularProgressIndicator(),
-              width: 20,
+              child: CircularProgressIndicator(
+                strokeWidth: 4.0,
+                backgroundColor: Colors.amber,
+              ),
             );
           }
         },

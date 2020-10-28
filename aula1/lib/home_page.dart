@@ -3,6 +3,7 @@ import 'package:aula1/cadastro_banco_dados.dart';
 import 'package:aula1/calculadora.dart';
 import 'package:aula1/imagens.dart';
 import 'package:aula1/imc.dart';
+import 'package:aula1/lista_estados.dart';
 import 'package:aula1/navegar.dart';
 import 'package:aula1/page_view.dart';
 import 'package:aula1/somarSetState.dart';
@@ -167,6 +168,17 @@ class _AulaState extends State<Aula> {
             onPressed: () {
               return Navigator.push(context,
                   MaterialPageRoute(builder: (context) => AcessoApi()));
+            },
+          ),
+
+          Divider(
+            height: 20,
+          ),
+          RaisedButton(
+            child: Text('Acesso API IBGE - Estados '),
+            onPressed: () {
+              return Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => ListaEstados()));
             },
           ),
 
